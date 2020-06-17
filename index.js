@@ -206,8 +206,27 @@
            return true;
     
            }
+ //  ---------------------------
            
-      
+      remove(index, val){
+             if (index < 0 || index >= this.length) return undefined
+             if(index === 0) return this.shift()
+             if(index === this.length -1 ) this.pop()
+
+// Use Get method to  retrieve the item to be removed.
+            let removedNode  = this.get(index)
+// Say we have A B C D ...We are removing  "C"   We need to connect  B to D, D to B.
+
+            removedNode.prev.next = removedNode.next;
+            removedNode.next.prev = removedNode.prev;
+          
+// update the next & prev properties to remove the found node Set them to Null.
+              removedNode.next = null
+              removedNode.prev = null
+            
+      this.length--
+      return removedNode
+      }
 
 
 
