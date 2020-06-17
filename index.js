@@ -217,8 +217,15 @@
             let removedNode  = this.get(index)
 // Say we have A B C D ...We are removing  "C"   We need to connect  B to D, D to B.
 
-            removedNode.prev.next = removedNode.next;
-            removedNode.next.prev = removedNode.prev;
+            // removedNode.prev.next = removedNode.next;
+            // removedNode.next.prev = removedNode.prev;
+
+                // OR Below... Still works the same
+         let beforeNode = removedNode.prev
+         let afterNode = removedNode.next
+          
+          beforeNode.next = afterNode.prev
+          afterNode.prev = beforeNode.next
           
 // update the next & prev properties to remove the found node Set them to Null.
               removedNode.next = null
