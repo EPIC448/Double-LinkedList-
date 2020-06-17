@@ -151,6 +151,7 @@
                   count--
              }
            }
+            
                  return current
 
          }
@@ -160,7 +161,7 @@
 
       set(index, val){
 
-  /*  create a variable which is the result of GET method at tthe index passed of
+  /*  create a variable which is the result of GET method at the index passed of
   get method at the index passed to the function. 
         */
           let foundNode = this.get(index)
@@ -176,7 +177,38 @@
    // Else return false.         
          return false;
       }
+  // -------------------------------------------
+
+
+      insert(index, val ){
+     if (index < 0 || index >= this.length) return false
+     if(index === 0) return this.unshift(val)
+     if(index === this.length) this.push(val)
+     var newNode = new Node(val)
+
+  // access the index right B4 the one we are looking to get
+         let beforeNode = this.get(index -1)
+         let afterNode = beforeNode.next
+   
+   /*Hints. Prev Node most connect to the NEW Node and the Next node most connect to the New Node    
+   
+    PRev <=>  New NODE  <=>  NEXT NODE
+
+    */
+          beforeNode.next = newNode;
+          newNode.prev = beforeNode.next;
+
+          newNode.next = afterNode;
+          afterNode.prev = newNode;
+ 
+           
+          this.length++;
+           return true;
     
+           }
+           
+      
+
 
 
 
