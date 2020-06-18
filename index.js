@@ -33,7 +33,7 @@
 
 
      push(val){
-         //Create a Node... with values pasted in
+ //Create a Node... with values pasted in
          let newNode = new Node(val)
 
          if(this.length === 0){
@@ -41,9 +41,10 @@
              this.tail = newNode
          }else{
 
-//              set the next property on the tail to that node. 
+//  set the next property on the tail to that node. 
          this.tail.next = newNode;
-         //set the previous property on the newly created node..
+ //set the previous property on the newly created node..
+// The part of the arrow that connect    Second to the last Node. with connection back and forth <======>  Newly added Node
          newNode.prev = this.tail;  // this ispointing the arrow backwords
           this.tail = newNode  //[set the previous [property on the newly created node. to be tail ]]
          }
