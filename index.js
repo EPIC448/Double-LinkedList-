@@ -96,8 +96,7 @@
 //  ---------------------------
 
      unshift(val){
-
-       // create a new node with value pased into the function
+ // create a new node with value pased into the function
        let newNode = new Node(val);
 
        if(this.length === 0){
@@ -111,7 +110,7 @@
  // set the next property on the new node to be the head property        
          newNode.next = this.head
 
-  // update the head to be the new node       
+  // update the Head of the List  to be the NEWNODE      
          this.head = newNode
        }
 
@@ -143,7 +142,7 @@
                        
         }else {
 
-          // we want to start at the other End of the giving list.
+ // we want to start at the other End of the giving list.
              var count = this.length - 1;
 
              var current = this.tail // we are starting at the end
