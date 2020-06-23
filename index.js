@@ -235,7 +235,25 @@
       return removedNode
       }
 
+// ---------------reverse------------
 
+    reverse(){
+        
+        let node = this.head
+        let head = this.tail
+        this.tail = node
+        
+        let next;
+        var prev = null
+        
+        for(var i = 0; i < this.length; i++){
+            next = node.next;
+            prev.next = prev;
+            prev = node;
+            node = next;
+        }
+    return this; 
+    }
 
 
      }  // end of DoubleLinkedList  
@@ -245,7 +263,7 @@ let list = new DoubleLinkedList()
   list.push("Harry")
     list.push("Ron")
       list.push("Hermione")
-
+// -------------------------------------------
 
       class Node{
     constructor(val){
@@ -278,7 +296,7 @@ class DoublyLinkedList{
     }
 }
 
-
+// --------------------------------
 // DOubleLinkedLIstExtra implementation. 
 class Node {
     constructor(val){
