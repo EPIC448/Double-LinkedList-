@@ -170,7 +170,7 @@
  to be the value passed to the function. 
   return true
   */          
-           if(foundNode != null){
+           if(foundNode !== null){
              foundNode.val = val;
              return true;
            }
@@ -245,3 +245,101 @@ let list = new DoubleLinkedList()
   list.push("Harry")
     list.push("Ron")
       list.push("Hermione")
+
+
+      class Node{
+    constructor(val){
+        this.val = val
+        this.next = null;      
+        this.prev = null;      
+    }
+}
+
+class DoublyLinkedList{
+    constructor(val){
+        this.val = val
+        this.next = null;      
+    }
+    push(val){
+        var node = new Node(val);
+        if (this.head === null) {
+            this.head = node;
+            this.tail = this.head;
+        } else {
+            this.tail.next = node;
+            node.prev = this.tail;
+            this.tail = node;
+        }
+        this.length++;
+        return this;
+    }
+    get(){
+        
+    }
+}
+
+
+// DOubleLinkedLIstExtra implementation. 
+class Node {
+    constructor(val){
+        this.val = val;
+        this.prev = null;
+        this.next = null;
+    }
+}
+
+
+class DoublyLinkedList {
+    constructor(){
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+    }
+    push(val) {
+        var node = new Node(val);
+        if (this.head === null) {
+            this.head = node;
+            this.tail = this.head;
+            this.length++;
+        } else {
+            this.tail.next = node;
+            node.prev = this.tail;
+            this.tail = node;
+            this.length++;
+         }
+        return this;
+    }
+    insert(){
+
+   let newNode = new Node(val)
+   
+   let beforeNode = this.get(index -1)
+   let afternode = beforeNode.next
+
+
+      beforeNode.next = newNode;
+      newNode.prev = beforeNode.next;
+      
+      newNode.next = afterNode;
+      afterNode.prev = newNode;
+      
+      this.length++;
+      return true;
+    }
+    
+    remove(index, val){
+        let removeNode = this.get(index)
+        
+        let beforeNode = removeNode.prev
+        let afterNode = removeNode.next
+        
+        beforeNode.next = afterNode.prev
+        afterNode.prev = beforeNode.next
+        
+        removeNode.next = null
+        removeNode.prev = null
+        
+        this.length--
+        return removeNode
+    }
+}
